@@ -1,7 +1,5 @@
 
 import com.google.gson.*;
-import org.apache.batik.transcoder.TranscoderException;
-import org.apache.batik.transcoder.image.PNGTranscoder;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -21,20 +19,6 @@ class CSPlayer {
     public int age, earnings;
     public float rating;
     public ArrayList<String> pastTeams;
-
-    /*CSPlayer (String fullname, String name, String currentTeam, String country, String continent, int age, int earnings, float rating, ArrayList<String> pastTeams)
-    {
-        this.fullname=fullname;
-        this.name=name;
-        this.currentTeam=currentTeam;
-        this.country=country;
-        this.continent=continent;
-        this.age=age;
-        this.earnings=earnings;
-        this.rating=rating;
-        this.pastTeams=pastTeams;
-    }*/
-
     public CSPlayer() {
         this.fullname=null;
         this.name=null;
@@ -105,7 +89,7 @@ public class main {
 
     }
 
-    static void generateTeamLogos() throws IOException, TranscoderException {
+    static void generateTeamLogos() throws IOException {
         Document playerspage = Jsoup.connect("https://www.hltv.org/ranking/teams").get();
         Elements teamLogos = playerspage.getElementsByClass("team-logo");
 
